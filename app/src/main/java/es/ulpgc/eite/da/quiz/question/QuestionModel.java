@@ -59,8 +59,6 @@ public class QuestionModel implements QuestionContract.Model {
     private String correctResultText, incorrectResultText;
     private String emptyResultText;
 
-    //private Handler handler = new Handler(Looper.getMainLooper()); // Manejo del retardo
-
     private int generateRandomDelay() {
         // Generar retardo aleatorio:
         // Minimo = 5
@@ -73,33 +71,12 @@ public class QuestionModel implements QuestionContract.Model {
         return delayMillis;
     }
 
-    /*
-    @Override
-    public void processAnswer(boolean userAnswer, OnAnswerProcessedListener listener) {
-        // Generar retardo aleatorio
-        int delayMillis = generateRandomDelay();
-
-        handler.postDelayed(() -> {
-            boolean isCorrect = getCurrentAnswer() == userAnswer;
-            if (listener != null) {
-                listener.onAnswerProcessed(isCorrect);
-            }
-        }, delayMillis);
-    }
-    */
 
     public void processAnswerWithCountdown(
         boolean userAnswer, OnAnswerProcessedWithCountdownListener listener, int resumeTime) {
 
         // Determinar si se inicia un nuevo contador o se reanuda uno anterior
         int delayMillis = (resumeTime > 0) ? resumeTime * 1000 : generateRandomDelay();
-
-        /*
-        // Cancelar cualquier contador anterior si existe (para evitar múltiples ejecuciones)
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
-        */
 
         // Iniciar nuevo temporizador con tiempo determinado
         new CountDownTimer(delayMillis, 1000) {
@@ -122,41 +99,11 @@ public class QuestionModel implements QuestionContract.Model {
                 }
 
                 if (listener != null) {
-                    //listener.onAnswerProcessed(isCorrect);
                     listener.onAnswerProcessed(resultText);
                 }
             }
         }.start();
     }
-
-//    @Override
-//    public void processAnswerWithCountdown(
-//        boolean userAnswer, OnAnswerProcessedWithCountdownListener listener
-//    ) {
-//
-//        // Generar retardo aleatorio
-//        int delayMillis = generateRandomDelay();
-//
-//        // Iniciar temporizador de cuenta regresiva
-//        new CountDownTimer(delayMillis, 1000) {
-//            @Override
-//            public void onTick(long millisUntilFinished) {
-//                // Notificar cada segundo con tiempo restante
-//                if (listener != null) {
-//                    listener.onTimeUpdate((int) millisUntilFinished / 1000);
-//                }
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//                // Cuando finalice temporizador, procesar respuesta
-//                boolean isCorrect = getCurrentAnswer() == userAnswer;
-//                if (listener != null) {
-//                    listener.onAnswerProcessed(isCorrect);
-//                }
-//            }
-//        }.start();
-//    }
 
 
     @Override
@@ -202,11 +149,6 @@ public class QuestionModel implements QuestionContract.Model {
         return quizAnswers[quizIndex];
     }
 
-    /*
-    private boolean getCurrentAnswer() {
-        return quizAnswers[quizIndex];
-    }
-    */
 
     @Override
     public boolean isLastQuestion() {

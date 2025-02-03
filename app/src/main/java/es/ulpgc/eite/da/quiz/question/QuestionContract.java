@@ -44,31 +44,16 @@ public interface QuestionContract {
         void setCurrentIndex(int index);
         int getCurrentIndex();
 
-        /*
-        void processAnswer(
-            boolean userAnswer, OnAnswerProcessedListener listener
-        );
-
-        interface OnAnswerProcessedListener {
-            void onAnswerProcessed(boolean isCorrect);
-        }
-        */
-
         void processAnswerWithCountdown(
             boolean userAnswer,
             OnAnswerProcessedWithCountdownListener listener, int resumeTime
         );
-
-//        void processAnswerWithCountdown(
-//            boolean userAnswer, OnAnswerProcessedWithCountdownListener listener
-//        );
 
         interface OnAnswerProcessedWithCountdownListener {
             // Notifica del retardo cada segundo
             void onTimeUpdate(int secsRemaining);
             // Notifica cuando la respuesta esté lista
             void onAnswerProcessed(String resultText);
-            //void onAnswerProcessed(boolean isCorrect);
         }
     }
 

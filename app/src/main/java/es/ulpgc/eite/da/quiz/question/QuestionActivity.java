@@ -109,15 +109,6 @@ public class QuestionActivity
     public void displayQuestionData(QuestionViewModel viewModel) {
         Log.e(TAG, "displayQuestionData");
 
-        /*
-        String resultText = getIncorrectResultText();
-        if(viewModel.lastAnswerCorrect == null) {
-            resultText =  getEmptyResultText();
-        } else if(viewModel.lastAnswerCorrect) {
-            resultText = getCorrectResultText();
-        }
-        */
-
         // deal with the data
         questionField.setText(viewModel.questionText);
         resultField.setText(viewModel.resultText);
@@ -145,20 +136,6 @@ public class QuestionActivity
     private String getTrueButtonLabel() {
         return getResources().getString(R.string.true_button_label);
     }
-
-    /*
-    private String getEmptyResultText() {
-        return getResources().getString(R.string.empty_text);
-    }
-
-    private String getCorrectResultText() {
-        return getResources().getString(R.string.correct_text);
-    }
-
-    private String getIncorrectResultText() {
-        return getResources().getString(R.string.incorrect_text);
-    }
-    */
 
     @Override
     public void injectPresenter(QuestionContract.Presenter presenter) {

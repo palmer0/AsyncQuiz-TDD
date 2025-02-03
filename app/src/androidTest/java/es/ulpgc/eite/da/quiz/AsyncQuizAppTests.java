@@ -29,7 +29,7 @@ import es.ulpgc.eite.da.quiz.question.QuestionActivity;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AsyncQuizAppTests {
 
-    int maxDelay = 10000;
+    int delayMillis = 10000;
 
 
     @Before
@@ -97,7 +97,7 @@ public class AsyncQuizAppTests {
         onView(ViewMatchers.withId(R.id.trueButton)).perform(ViewActions.click());
 
         try {
-            Thread.sleep(maxDelay);
+            Thread.sleep(delayMillis);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -161,7 +161,7 @@ public class AsyncQuizAppTests {
             onView(ViewMatchers.withId(R.id.trueButton)).perform(ViewActions.click());
 
             try {
-                Thread.sleep(maxDelay);
+                Thread.sleep(delayMillis);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -180,7 +180,7 @@ public class AsyncQuizAppTests {
 
 
         try {
-            Thread.sleep(maxDelay);
+            Thread.sleep(delayMillis);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -246,7 +246,7 @@ public class AsyncQuizAppTests {
 
 
             try {
-                Thread.sleep(maxDelay);
+                Thread.sleep(delayMillis);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -290,7 +290,7 @@ public class AsyncQuizAppTests {
 
 
             try {
-                Thread.sleep(maxDelay);
+                Thread.sleep(delayMillis);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
