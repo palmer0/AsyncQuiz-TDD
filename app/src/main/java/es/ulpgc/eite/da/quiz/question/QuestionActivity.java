@@ -112,7 +112,6 @@ public class QuestionActivity
         // deal with the data
         questionField.setText(viewModel.questionText);
         resultField.setText(viewModel.resultText);
-        //resultField.setText(resultText);
 
         trueButton.setEnabled(viewModel.trueButton);
         falseButton.setEnabled(viewModel.falseButton);

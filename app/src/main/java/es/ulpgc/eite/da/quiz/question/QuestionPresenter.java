@@ -95,8 +95,6 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     public void onDestroyCalled() {
         Log.e(TAG, "onDestroyCalled");
 
-        // Reset current state
-        //mediator.resetCheatState();
     }
 
     private void resumeCountdown(int timeLeft) {
