@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.content.Intent;
+import android.os.Looper;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,6 +19,10 @@ import org.junit.runners.MethodSorters;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowLooper;
+import org.robolectric.shadows.ShadowAsyncTask;
+
+import java.time.Duration;
 
 import es.ulpgc.eite.da.quiz.app.AppMediator;
 import es.ulpgc.eite.da.quiz.cheat.CheatActivity;

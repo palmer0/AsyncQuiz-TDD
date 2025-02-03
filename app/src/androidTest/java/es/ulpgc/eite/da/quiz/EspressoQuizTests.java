@@ -27,7 +27,7 @@ import es.ulpgc.eite.da.quiz.question.QuestionActivity;
 // Copyright (c) 2025 EITE (ULPGC)
 @RunWith(AndroidJUnit4.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class AsyncQuizAppTests {
+public class EspressoQuizTests {
 
     int delayMillis = 10000;
 
@@ -119,7 +119,6 @@ public class AsyncQuizAppTests {
         onView(ViewMatchers.withId(R.id.nextButton))
             .check(ViewAssertions.matches(ViewMatchers.isEnabled()));
     }
-
 
 
     @Test
