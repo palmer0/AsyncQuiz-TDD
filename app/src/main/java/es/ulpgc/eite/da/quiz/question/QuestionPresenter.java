@@ -79,6 +79,41 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         }
     }
 
+
+    @Override
+    public void onResumeCalled() {
+        Log.e(TAG, "onResumeCalled");
+
+        // Obtener el estado guardado desde la pantalla Cheat
+        CheatToQuestionState savedState = mediator.getCheatToQuestionState();
+        if (savedState != null) {
+            // Si el usuario vio la respuesta
+            if (savedState.cheated) {
+                // Si estamos en la última pregunta, solo deshabilitar botones
+                if (model.isLastQuestion()) {
+                    disableAnswerButtons();
+                    state.nextButton = false; // Mantener deshabilitado
+
+                } else {
+                    // Avanzar a la siguiente pregunta si no es la última
+                    nextButtonClicked();
+                    return;
+                }
+
+            }
+        }
+
+        // Refrescar la pantalla con el estado actualizado
+        view.get().displayQuestionData(state);
+    }
+
+    private void disableAnswerButtons() {
+        state.falseButton = false;
+        state.trueButton = false;
+        state.cheatButton = false;
+    }
+
+    /*
     @Override
     public void onResumeCalled() {
         Log.e(TAG, "onResumeCalled");
@@ -98,6 +133,8 @@ public class QuestionPresenter implements QuestionContract.Presenter {
         view.get().displayQuestionData(state);
 
     }
+    */
+
 
     @Override
     public void onPauseCalled() {
@@ -199,10 +236,11 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     }
 
     private void processAnswerWithCountdown(boolean userAnswer) {
-        state.falseButton = false;
-        state.trueButton = false;
-        state.cheatButton = false;
+        //state.falseButton = false;
+        //state.trueButton = false;
+        //state.cheatButton = false;
 
+        disableAnswerButtons();
         view.get().displayQuestionData(state);
 
         // Obtener tiempo restante desde Mediator

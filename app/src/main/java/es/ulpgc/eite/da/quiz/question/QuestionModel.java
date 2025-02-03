@@ -113,7 +113,8 @@ public class QuestionModel implements QuestionContract.Model {
             @Override
             public void onFinish() {
                 boolean isCorrect = getCurrentAnswer() == userAnswer;
-                String resultText = null;
+                String resultText;
+
                 if (isCorrect) {
                     resultText = getCorrectResultText();
                 } else {
