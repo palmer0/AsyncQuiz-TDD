@@ -111,7 +111,15 @@ public class QuestionModel implements QuestionContract.Model {
         return emptyResultText;
     }
 
+    private String getCorrectResultText() {
+        return correctResultText;
+    }
 
+    private String getIncorrectResultText() {
+        return incorrectResultText;
+    }
+
+    /*
     @Override
     public String getCorrectResultText() {
         return correctResultText;
@@ -121,6 +129,7 @@ public class QuestionModel implements QuestionContract.Model {
     public String getIncorrectResultText() {
         return incorrectResultText;
     }
+    */
 
 
     @Override

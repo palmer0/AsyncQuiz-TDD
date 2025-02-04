@@ -33,8 +33,8 @@ public interface QuestionContract {
 
         String getEmptyResultText();
         void setEmptyResultText(String text);
-        String getCorrectResultText();
-        String getIncorrectResultText();
+        //String getCorrectResultText();
+        //String getIncorrectResultText();
         void setCorrectResultText(String text);
         void setIncorrectResultText(String text);
         String getCurrentQuestion();
