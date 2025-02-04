@@ -119,18 +119,6 @@ public class QuestionModel implements QuestionContract.Model {
         return incorrectResultText;
     }
 
-    /*
-    @Override
-    public String getCorrectResultText() {
-        return correctResultText;
-    }
-
-    @Override
-    public String getIncorrectResultText() {
-        return incorrectResultText;
-    }
-    */
-
 
     @Override
     public void setEmptyResultText(String text) {
