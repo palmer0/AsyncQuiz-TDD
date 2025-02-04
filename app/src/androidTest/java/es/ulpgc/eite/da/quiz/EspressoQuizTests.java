@@ -220,9 +220,14 @@ public class EspressoQuizTests {
         // Iniciar la actividad
         ActivityScenario.launch(QuestionActivity.class);
 
-
         onView(ViewMatchers.withId(R.id.cheatButton)).perform(ViewActions.click());
+
+        // Girar la pantalla
+        rotateScreen();
+
+        // Regresar a la pantalla Question
         pressBack();
+
         onView(ViewMatchers.withId(R.id.trueButton))
             .check(ViewAssertions.matches(ViewMatchers.isEnabled()));
         onView(ViewMatchers.withId(R.id.falseButton))
@@ -254,6 +259,9 @@ public class EspressoQuizTests {
             onView(ViewMatchers.withId(R.id.nextButton)).perform(ViewActions.click());
         }
 
+        // Girar la pantalla
+        rotateScreen();
+
         // Verificar que la ultima pregunta se muestra correctamente
         onView(ViewMatchers.withId(R.id.questionField))
             .check(ViewAssertions.matches(ViewMatchers.withText(
@@ -265,6 +273,9 @@ public class EspressoQuizTests {
 
         // Ver la respuesta en la pantalla Cheat
         onView(ViewMatchers.withId(R.id.yesButton)).perform(ViewActions.click());
+
+        // Girar la pantalla
+        rotateScreen();
 
         // Verificar que la respuesta se muestra en la pantalla Cheat
         onView(ViewMatchers.withId(R.id.answerField))
@@ -298,6 +309,9 @@ public class EspressoQuizTests {
             onView(ViewMatchers.withId(R.id.nextButton)).perform(ViewActions.click());
         }
 
+        // Girar la pantalla
+        rotateScreen();
+
         // Verificar que la ultima pregunta se muestra correctamente
         onView(ViewMatchers.withId(R.id.questionField))
             .check(ViewAssertions.matches(ViewMatchers.withText(
@@ -310,12 +324,18 @@ public class EspressoQuizTests {
         // Ver la respuesta en CheatActivity
         onView(ViewMatchers.withId(R.id.yesButton)).perform(ViewActions.click());
 
+        // Girar la pantalla
+        rotateScreen();
+
         // Verificar que la respuesta se muestra en CheatActivity
         onView(ViewMatchers.withId(R.id.answerField))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
 
         // Regresar a la pantalla Question
         pressBack();
+
+        // Girar la pantalla
+        rotateScreen();
 
         // Verificar que la pregunta sigue visible
         onView(ViewMatchers.withId(R.id.questionField))
